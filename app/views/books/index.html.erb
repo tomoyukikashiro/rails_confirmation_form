@@ -1,0 +1,8 @@
+
+<p><%= link_to 'new', books_new_path %></p>
+
+<ul>
+  <% @books.each do |book| %>
+    <li><%= book.title %>(<%= book.author %>)</li>
+  <% end %>
+</ul>

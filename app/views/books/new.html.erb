@@ -1,0 +1,31 @@
+
+<% if alert.present? %>
+  <p><%= alert %></p>
+<% end %>
+
+<% if @book.errors.present? %>
+<ul>
+  <% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @book, url: {action: :confirm} do |f| %>
+  <div>
+  <%= f.label :title, 'title: ' %>
+  <%= f.text_field :title %>
+  </div>
+  
+  <div>
+  <%= f.label :author, 'author: ' %>
+  <%= f.text_field :author %>
+  </div>
+  
+  <div>
+  <%= f.label :published, 'published: ' %>
+  <%= f.check_box :published %>
+  </div>
+
+  <button>confirm</button>
+<% end %>
